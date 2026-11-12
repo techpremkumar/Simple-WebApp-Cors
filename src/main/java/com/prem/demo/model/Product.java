@@ -1,3 +1,4 @@
+
 package com.prem.demo.model;
 
 import jakarta.persistence.*;
@@ -18,6 +19,13 @@ public class Product {
     private LocalDate releaseDate;
     private boolean available;
     private int quantity;
+
+    // Image fields
+    private String imageName;
+    private String imageType;
+
+    @Lob
+    private byte[] imageData;
 
     public Product() {
     }
@@ -107,5 +115,31 @@ public class Product {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    // Image getters and setters
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+    public String getImageType() {
+        return imageType;
+    }
+
+    public void setImageType(String imageType) {
+        this.imageType = imageType;
+    }
+
+    public byte[] getImageData() {
+        return imageData;
+    }
+
+    public void setImageData(byte[] imageData) {
+        this.imageData = imageData;
     }
 }

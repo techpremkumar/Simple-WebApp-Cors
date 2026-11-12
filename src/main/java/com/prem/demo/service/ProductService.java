@@ -1,12 +1,14 @@
+
 package com.prem.demo.service;
 
 import com.prem.demo.model.Product;
 import com.prem.demo.repository.ProductRepository;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 import java.util.Optional;
 
 @Service
@@ -17,9 +19,24 @@ public class ProductService {
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
-
+    public List<Product> searchProducts(String keyword) {
+        return productRepository.searchProducts(keyword);
+    }
     // Create
     public Product addProduct(Product product) {
+        return productRepository.save(product);
+    }
+
+    // Create product with image
+    public Product addProduct(Product product, MultipartFile image)
+            throws IOException {
+
+        if (image != null && !image.isEmpty()) {
+            product.setImageName(image.getOriginalFilename());
+            product.setImageType(image.getContentType());
+            product.setImageData(image.getBytes());
+        }
+
         return productRepository.save(product);
     }
 
@@ -32,6 +49,7 @@ public class ProductService {
     public Optional<Product> getProductById(Integer id) {
         return productRepository.findById(id);
     }
+
     // Update
     public Optional<Product> updateProduct(
             Integer id, Product updatedProduct) {
