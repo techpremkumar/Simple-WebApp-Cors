@@ -53,7 +53,7 @@ This repository contains a Spring Boot backend, a React + Vite frontend, and a s
    | `DB_URL` | `jdbc:mysql://localhost:3306/spring_data_jpa_db` | JDBC connection URL |
    | `DB_USERNAME` | `root` | MySQL username |
    | `DB_PASSWORD` | Set your local password | MySQL password |
-   | `CORS_ALLOWED_ORIGINS` | `http://localhost:5173` | Allowed frontend origin(s), comma-separated |
+   | `CORS_ALLOWED_ORIGINS` | `http://localhost:5173` | Allowed frontend origin |
 
    Never commit real credentials. Supply `DB_PASSWORD` through your shell,
    IDE run configuration, or deployment secret manager.
