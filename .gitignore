@@ -37,3 +37,18 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+### Node / Vite
+node_modules/
+cors-frontend/dist/
+dist/
+
+### Logs
+*.log
