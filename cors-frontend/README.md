@@ -1,16 +1,52 @@
-# React + Vite
+# CORS WebApp — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+React 19 + Vite frontend for the Simple WebApp CORS product-catalog API.
 
-Currently, two official plugins are available:
+## Requirements
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Node.js 20.19+ or 22.12+
+- npm
+- Spring Boot backend running on port 8080
+- MySQL configured for the backend
 
-## React Compiler
+## Getting started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the Oxlint configuration
+Open the Vite URL printed in the terminal (typically http://localhost:5173).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Available scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run build` | Create a production build |
+| `npm run preview` | Preview the production build |
+| `npm run lint` | Run Oxlint |
+
+## Backend connection and CORS
+
+The frontend currently requests the API at `http://localhost:8080/api/products`.
+The backend must allow the frontend origin. Configure `CORS_ALLOWED_ORIGINS`
+in the backend environment when using a different origin.
+
+## Project structure
+
+```text
+src/
+├── assets/
+├── App.jsx
+├── App.css
+├── index.css
+└── main.jsx
+public/
+```
+
+## Production note
+
+Do not hard-code credentials or private API keys in frontend source code.
+Configure production API endpoints and backend CORS origins for the deployment
+environment before publishing.
